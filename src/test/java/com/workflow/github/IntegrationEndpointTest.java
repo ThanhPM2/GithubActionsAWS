@@ -26,6 +26,6 @@ public class IntegrationEndpointTest {
 
         // ASSERT
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody()).isEqualTo("Hello 2");
+        assertThat(response.getBody()).isEqualTo("Hello 3");
     }
 }
