@@ -26,7 +26,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Login docker
-      run: docker login -u="minhthanh1703" -p="minhthanh1703"
+      run: docker login --username="minhthanh1703" --password="minhthanh1703"
     - name: Build docker image
       run:  docker build -t spring-boot-docker.jar .
     - name: Kill old container
