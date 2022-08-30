@@ -10,8 +10,11 @@ on:
 #    branches: [ "main" ]
 
 jobs:
+
   build:
+
     runs-on: self-hosted
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -26,9 +29,7 @@ jobs:
         run: sudo docker login --username="minhthanh1703" --password="minhthanh1703"
       - name: Build docker image
         run: sudo docker build -t spring-boot-docker.jar .
-#      - name: Kill old container
-#        run: sudo kill -9 `sudo lsof -t -i:9090`
       - name: Run docker container
         run: sudo docker run -p 9091:9090 --name backend-application  spring-boot-docker.jar
-    - name: Execute Jar file
-      run: sudo kill -9 `sudo lsof -t -i:9090` & sudo java -jar /home/ubuntu/actions-runner/_work/GithubActionsAWS/GithubActionsAWS/target/workflow-github-actions-1.0-SNAPSHOT.jar &
+      - name: Execute Jar file
+        run: sudo kill -9 `sudo lsof -t -i:9090` & sudo java -jar /home/ubuntu/actions-runner/_work/GithubActionsAWS/GithubActionsAWS/target/workflow-github-actions-1.0-SNAPSHOT.jar &
