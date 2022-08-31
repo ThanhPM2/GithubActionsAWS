@@ -29,9 +29,9 @@ jobs:
         run: sudo docker login --username="minhthanh1703" --password="minhthanh1703"
       - name: Build docker image
         run: sudo docker build -t spring-boot-docker.jar .
-      - name: Stop old container
-        run: sudo docker stop backend-container
-      - name: Kill old container
-        run: sudo docker rm backend-container
+#      - name: Stop old container
+#        run: sudo docker stop backend-container
+#      - name: Kill old container
+#        run: sudo docker rm backend-container
       - name: Run docker container
         run: sudo docker run -p 9091:9090 --name backend-container  spring-boot-docker.jar
